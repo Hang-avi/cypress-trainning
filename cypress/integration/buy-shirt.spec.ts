@@ -3,7 +3,7 @@ import {
   ShippingPage,
 } from "../page/index";
 
-//Arrange
+// Arrange
 const menuContentPage = new MenuContentPage();
 const productsListPage = new ProductsListPage();
 const shopingCartPage = new ShopingCartPage();
@@ -14,7 +14,7 @@ const shippingPage = new ShippingPage();
 
 describe("Buy a t-shirt", () => {
   it("then should be bought a t-shirt", () => {
-    //Action
+    // Action
     menuContentPage.visitMenuContentPage();
     menuContentPage.goToTShirtMenu();
     productsListPage.selectProduct();
@@ -27,7 +27,7 @@ describe("Buy a t-shirt", () => {
     shippingPage.checkTermsOfService();
     shippingPage.goToPayment();
     paymentPage.payByBankWire();
-    //Assert
+    // Assert
     // For the last test, we were not able to accomplish it even with
     // a time-out wait of 3 minutes. This does happen with
     // the next implementation and with "paymentPage.verifySummaryPage();"

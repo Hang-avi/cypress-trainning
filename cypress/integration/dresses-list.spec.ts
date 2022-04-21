@@ -3,12 +3,12 @@ import { MenuContentPage, DressesListPage } from "../page/index";
 describe("the user navigates to the dresses page should", () => {
   let menuContentPage: MenuContentPage;
   let dressesListPage: DressesListPage;
-  var dressesNames: String[];
+  let dressesNames: String[];
 
   before(() => {
     menuContentPage = new MenuContentPage();
     dressesListPage = new DressesListPage();
-    //Arrange
+    // Arrange
     dressesNames = [
       "Printed Dress",
       "Printed Dress",
@@ -18,10 +18,10 @@ describe("the user navigates to the dresses page should", () => {
     ];
   });
   it("show the available dresses", () => {
-    //Action
+    // Action
     menuContentPage.visitMenuContentPage();
     menuContentPage.goToDressesPage();
-    //Assert
+    // Assert
     dressesListPage.validateItemsNames(dressesNames);
   });
 });
