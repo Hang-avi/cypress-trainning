@@ -1,27 +1,33 @@
+import {
+  MenuContentPage, ProductsListPage, ShopingCartPage, LoginPage, AddressPage, PaymentPage,
+  ShippingPage,
+} from "../page/index";
+
+const menuContentPage = new MenuContentPage();
+const productsListPage = new ProductsListPage();
+const shopingCartPage = new ShopingCartPage();
+const loginPage = new LoginPage();
+const addressPage = new AddressPage();
+const paymentPage = new PaymentPage();
+const shippingPage = new ShippingPage();
+
 describe("Buy a t-shirt", () => {
-  it("then the t-shirt should be bought", () => {
-    cy.visit("http://automationpractice.com/");
-    cy.get("#block_top_menu > ul > li:nth-child(3) > a").click();
-    cy.get("#center_column a.button.ajax_add_to_cart_button.btn.btn-default").click();
-    cy.get("[style*=\"display: block;\"] .button-container > a").click();
-    cy.get(".cart_navigation span").click();
-
-    cy.get("#email").type("aperdomobo@gmail.com");
-    cy.get("#passwd").type("WorkshopProtractor");
-
-    // 8
-    cy.get("#SubmitLogin").click();
-    // 9
-    cy.get("[name=\"processAddress\"]").click();
-    // 10
-    cy.get("[type=\"checkbox\"]").check();
-    // 11
-    cy.get("[name=\"processCarrier\"]").click();
-    // 12
-    cy.get(".bankwire span").click();
-    // 13
-    cy.get("#cart_navigation > button").click();
-
+  it("then should be bought a t-shirt", () => {
+    menuContentPage.visitMenuContentPage();
+    menuContentPage.goToTShirtMenu();
+    productsListPage.selectProduct();
+    productsListPage.goToCart();
+    shopingCartPage.goToLogin();
+    loginPage.enterEmail();
+    loginPage.enterPassword();
+    loginPage.submitSignIn();
+    addressPage.confirmAddress();
+    shippingPage.checkTermsOfService();
+    shippingPage.goToPayment();
+    paymentPage.payByBankWire();
+    //For the last test, we were not able to accomplish it even with
+    //a time-out wait of 3 minutes. This does happen with
+    //the next implementation and with "paymentPage.verifySummaryPage();"
     cy.get("#center_column > div > p > strong")
       .should("have.text", "Your order on My Store is complete.");
   });
