@@ -15,12 +15,13 @@ class GildedroseAddItem {
         this.deployForm = '[data-automation="item-form-type"]'
         this.typeField = 'span'
         this.confirmButton = '[data-automation="item-form-confirm-button"]'
-        this.qualityError = '#mat-error-4'
+        this.qualityError = '#mat-error-0'
         this.lastItem = '[data-automation="list-item-row"]'
     }
 
     public fillName(nameParam: string): void {
         cy.get(this.nameField).type(nameParam)
+	this.name=nameParam
     }
 
     public fillSellIn(sellInParam: int): void {
@@ -49,7 +50,7 @@ class GildedroseAddItem {
     }
 
     public checkItemAdded(name: string): void {
-        cy.get(this.lastItem).last().get('div').first().should('eq',name)
+        cy.get(this.lastItem).last().get('div').first().contains(this.name)
     }
 }
 export { GildedroseAddItem }

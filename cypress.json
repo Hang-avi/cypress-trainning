@@ -1,4 +1,4 @@
 {
-    "defaultCommandTimeout": 180000,
-    "responseTimeout": 180000
+    "defaultCommandTimeout": 20000,
+    "responseTimeout": 20000
 }

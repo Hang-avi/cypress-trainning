@@ -17,7 +17,7 @@ class GildedroseUpdateItem {
         this.typeField = 'span'
         this.confirmButton = '[data-automation="item-form-confirm-button"]'
         this.qualityError = '#mat-error-4'
-        this.updateLastItem = 'mat-icon'
+        this.updateLastItem = '[data-automation="list-item-row"] > div > mat-icon'
     }
 
     public fillName(nameParam: string): void {
@@ -42,7 +42,8 @@ class GildedroseUpdateItem {
     }
 
     public pressPenButton(): void {
-        cy.get(this.updateLastItem).contains(' edit ').last().click();
+        cy.wait(1000)
+        cy.get(this.updateLastItem).first().click();
     }
 }
 export { GildedroseUpdateItem }

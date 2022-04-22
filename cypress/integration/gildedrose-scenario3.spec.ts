@@ -21,9 +21,13 @@ describe("", () => {
   it("", () => {
     // Action
     gildedroseUpdateItem.pressPenButton();
+    gildedroseAddItem.fillName("Ensalada con vino");
+    gildedroseAddItem.fillSellIn(10);
+    gildedroseAddItem.fillQuality(50);
+    gildedroseAddItem.selectType("AGED");
+    gildedroseAddItem.pressAddButton();
 
     // Assert
-    gildedroseAddItem.checkAddButtonDisabled();
-    gildedroseAddItem.checkQualityError();
+    gildedroseHome.checkLastItem("Ensalada con vino")
   });
 });

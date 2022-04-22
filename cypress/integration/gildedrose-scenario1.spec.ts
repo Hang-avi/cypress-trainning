@@ -22,5 +22,6 @@ describe("", () => {
     gildedroseAddItem.pressAddButton();
     gildedroseAddItem.checkItemAdded(name);
     // Assert
+    gildedroseHome.checkLastItem(name)
   });
 });

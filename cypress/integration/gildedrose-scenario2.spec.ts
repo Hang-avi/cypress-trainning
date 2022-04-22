@@ -16,6 +16,7 @@ describe("", () => {
     gildedroseAddItem.fillName("Arroz");
     gildedroseAddItem.fillSellIn(12);
     gildedroseAddItem.fillQuality(-40);
+    gildedroseAddItem.selectType("NORMAL");
 
     // Assert
     gildedroseAddItem.checkAddButtonDisabled();
